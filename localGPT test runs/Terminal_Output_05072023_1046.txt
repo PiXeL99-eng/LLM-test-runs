@@ -1,0 +1,169 @@
+PS C:\Users\visha\OneDrive\Desktop\GenAI\localGPT> python ingest.py  # defaults to cuda
+2023-07-05 10:30:38,584 - INFO - ingest.py:120 - Loading documents from C:\Users\visha\OneDrive\Desktop\GenAI\localGPT/SOURCE_DOCUMENTS
+2023-07-05 10:31:03,104 - INFO - ingest.py:129 - Loaded 1 documents from C:\Users\visha\OneDrive\Desktop\GenAI\localGPT/SOURCE_DOCUMENTS
+2023-07-05 10:31:03,104 - INFO - ingest.py:130 - Split into 2565 chunks of text
+2023-07-05 10:31:06,137 - INFO - SentenceTransformer.py:66 - Load pretrained SentenceTransformer: hkunlp/instructor-large
+load INSTRUCTOR_Transformer
+max_seq_length  512
+2023-07-05 10:31:08,058 - INFO - __init__.py:88 - Running Chroma using direct local API.
+2023-07-05 10:31:08,386 - WARNING - __init__.py:43 - Using embedded DuckDB with persistence: data will be stored in: C:\Users\visha\OneDrive\Desktop\GenAI\localGPT/DB
+2023-07-05 10:31:08,400 - INFO - ctypes.py:22 - Successfully imported ClickHouse Connect C data optimizations
+2023-07-05 10:31:08,406 - INFO - json_impl.py:45 - Using python library for writing JSON byte strings
+2023-07-05 10:31:08,559 - INFO - duckdb.py:460 - loaded in 2565 embeddings
+2023-07-05 10:31:08,560 - INFO - duckdb.py:472 - loaded in 1 collections
+2023-07-05 10:31:08,562 - INFO - duckdb.py:89 - collection with name langchain already exists, returning existing collection
+2023-07-05 10:31:58,226 - INFO - duckdb.py:414 - Persisting DB to disk, putting it in the save folder: C:\Users\visha\OneDrive\Desktop\GenAI\localGPT/DB
+2023-07-05 10:31:58,589 - INFO - duckdb.py:414 - Persisting DB to disk, putting it in the save folder: C:\Users\visha\OneDrive\Desktop\GenAI\localGPT/DB
+PS C:\Users\visha\OneDrive\Desktop\GenAI\localGPT> python run_localGPT.py
+2023-07-05 10:36:44,899 - INFO - run_localGPT.py:163 - Running on: cuda
+2023-07-05 10:36:44,899 - INFO - run_localGPT.py:164 - Display Source Documents set to: False
+2023-07-05 10:36:45,024 - INFO - SentenceTransformer.py:66 - Load pretrained SentenceTransformer: hkunlp/instructor-large
+load INSTRUCTOR_Transformer
+max_seq_length  512
+2023-07-05 10:36:46,427 - INFO - __init__.py:88 - Running Chroma using direct local API.
+2023-07-05 10:36:46,549 - WARNING - __init__.py:43 - Using embedded DuckDB with persistence: data will be stored in: C:\Users\visha\OneDrive\Desktop\GenAI\localGPT/DB
+2023-07-05 10:36:46,555 - INFO - ctypes.py:22 - Successfully imported ClickHouse Connect C data optimizations
+2023-07-05 10:36:46,559 - INFO - json_impl.py:45 - Using python library for writing JSON byte strings
+2023-07-05 10:36:46,653 - INFO - duckdb.py:460 - loaded in 5130 embeddings
+2023-07-05 10:36:46,654 - INFO - duckdb.py:472 - loaded in 1 collections
+2023-07-05 10:36:46,656 - INFO - duckdb.py:89 - collection with name langchain already exists, returning existing collection
+2023-07-05 10:36:46,656 - INFO - run_localGPT.py:45 - Loading Model: TheBloke/vicuna-7B-1.1-HF, on: cuda
+2023-07-05 10:36:46,656 - INFO - run_localGPT.py:46 - This action can take a few minutes!
+2023-07-05 10:36:46,656 - INFO - run_localGPT.py:73 - Using AutoModelForCausalLM for full models
+2023-07-05 10:38:18,150 - INFO - run_localGPT.py:75 - Tokenizer loaded
+2023-07-05 10:38:19,070 - WARNING - modeling.py:706 - The model weights are not tied. Please use the `tie_weights` method before using the `infer_auto_device` function.
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:06<00:00,  3.26s/it]
+Xformers is not installed correctly. If you want to use memory_efficient_attention to accelerate training use the following command to install Xformers
+pip install xformers.
+2023-07-05 10:38:26,193 - INFO - run_localGPT.py:110 - Local LLM Loaded
+
+Enter a query: Describe the EMM Registered state. 
+
+
+> Question:
+Describe the EMM Registered state.
+
+> Answer:
+ The EMM Registered state is a state where the UE has registered with the network and is currently connected to the network. In this state, the UE is able to receive paging messages and perform other functions such as sending and receiving data. When the UE is in the EMM Registered state, it can also be deregistered by the network or initiate an emergency call.
+
+Enter a query: What is No-cell-available UE behaviour in EMM deregistered state?
+
+
+> Question:
+What is No-cell-available UE behaviour in EMM deregistered state?
+
+> Answer:
+ The "No-cell-available" behavior occurs in the EMM-DEREGISTERED state when no cells can be selected.
+
+Enter a query: Explain Power Saving Mode in EMM.
+
+
+> Question:
+Explain Power Saving Mode in EMM.
+
+> Answer:
+ Power Saving Mode (PSM) is a feature provided by the Evolved Packet System (EPS) that allows user equipment (UE) to reduce its power consumption when not actively communicating. In PSM mode, the UE reduces its transmission rate and can also turn off certain radio frequency (RF) components to conserve battery life. The UE can be placed into PSM mode by the network operator using a control message called a Power Saving Mode Command (PSMC). When the UE receives a PSMC, it will transition to PSM mode within a predefined time period. Once in PSM mode, the UE will remain there until it receives another command to exit PSM mode or until a certain amount of time has passed.
+
+Enter a query: Describe the procedure of handling of timer T3402.
+
+
+> Question:
+Describe the procedure of handling of timer T3402.
+
+> Answer:
+ Timer T3402 is used to check whether a SIM card has been inserted into the device within a certain period of time after powering on. The timer starts counting down from a predefined value (T3402\_timeout) when the device is turned on. If the SIM card is detected before the countdown reaches zero, the timer is reset to its initial value. However, if no SIM card is detected during this period, the timer will expire and cause the device to perform actions such as displaying an error message or disabling some features.
+
+Enter a query: What is the full form of ACDC according to 3GPP?
+
+
+> Question:
+What is the full form of ACDC according to 3GPP?
+
+> Answer:
+ Application Specific Congestion Control for Data Communication
+
+Enter a query: What is the full form of CSG according to 3GPP.
+
+
+> Question:
+What is the full form of CSG according to 3GPP.
+
+> Answer:
+ According to 3GPP, CSG stands for "Closed Subscriber Group".
+
+Enter a query: What is the full form of GUMMEI according to 3GPP?
+
+
+> Question:
+What is the full form of GUMMEI according to 3GPP?
+
+> Answer:
+ The full form of GUMMEI is Generic Universal Mobile Multimedia Interface.
+ 
+ Enter a query: What is the full form of MT-EDT according to 3GPP? 
+
+
+> Question:
+What is the full form of MT-EDT according to 3GPP?
+
+> Answer:
+ Mobile Terminated Evolved Data Transfer
+
+Enter a query: What is the full form of TIN according to 3GPP?    
+
+
+> Question:
+What is the full form of TIN according to 3GPP?
+
+> Answer:
+ The full form of TIN (Temporary Internet Number) according to 3GPP is not specified in any of the documents provided.
+
+Enter a query: Explain Cause 3 in EPS mobility management.
+
+
+> Question:
+Explain Cause 3 in EPS mobility management.
+
+> Answer:
+ Cause value #3 in EPS mobility management refers to "Illegal UE" which means that the network has refused service to the UE due to an issue with its identity or authentication. The UE might have a non-acceptable identity or it might not pass the authentication check during the RACH process.
+
+Enter a query: Explain Cause 14 in EPS mobility management.
+
+
+> Question:
+Explain Cause 14 in EPS mobility management.
+
+> Answer:
+ The cause value 14 in EPS mobility management refers to "invalid message." This means that the message being sent by the user equipment (UE) or the network is not a valid message according to the rules defined in the 3rd Generation Partnership Project (3GPP). Invalid messages can be caused by various reasons such as incorrect syntax, missing information, or mismatched parameters. In this case, the network may reject the message or return an error code indicating the reason for rejection.
+
+Enter a query: Explain Cause 23 in EPS mobility management. 
+C:\Users\visha\AppData\Local\Programs\Python\Python310\lib\site-packages\transformers\pipelines\base.py:1081: UserWarning: You seem to be using the pipelines sequentially on GPU. In order to maximize efficiency please use a dataset
+  warnings.warn(
+
+
+> Question:
+Explain Cause 23 in EPS mobility management.
+
+> Answer:
+ Cause 23 in EPS mobility management refers to "invalid message" as the cause for attach accept failure. This means that the attach accept message sent by the Mobility Management Entity (MME) is not valid or does not meet the required format or content standards, which results in a failed attachment attempt between the User Equipment (UE) and the Evolved Packet Core (EPC).
+
+Enter a query: What is Cause 98 in EPS mobility management.
+
+
+> Question:
+What is Cause 98 in EPS mobility management.
+
+> Answer:
+ I don't know.
+
+Enter a query: Explain Cause 30 in EPS session management.
+
+
+> Question:
+Explain Cause 30 in EPS session management.
+
+> Answer:
+ Cause 30 indicates "Protocol error (e.g., unknown message)" in EPS session management. It means that the received message was not recognized by the receiver due to some issue with the format or encoding of the message.
+ 
+ Enter a query: exit
+2023-07-05 11:34:24,843 - INFO - duckdb.py:414 - Persisting DB to disk, putting it in the save folder: C:\Users\visha\OneDrive\Desktop\GenAI\localGPT/DB
